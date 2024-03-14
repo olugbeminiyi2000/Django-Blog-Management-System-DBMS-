@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>{{ user_firstname }} {{ user_lastname }}'s Blog homepage</title>
+        {% load static %}
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="{% static './styles/homepage.css' %}">
+    </head>
+    <body>
+        <header>
+            <div class="ham-button">
+                <button>
+                    <span style="background: rgb(132, 132, 132); display: block; height: 5px; margin-bottom: 3px;"></span>
+                    <span style="background: rgb(162, 162, 162); display: block; height: 5px; margin-bottom: 3px;"></span>
+                    <span style="background: rgb(150, 141, 141); display: block; height: 5px; margin-bottom: 2px;"></span>
+                </button>
+                <div id="ham-display" class="ham-display-1">
+                    <p><a class="all-blinks links-color3" href="{% url 'blog:create' user_pk %}">New content</a></p>
+                    <p><a class="all-blinks links-color3" href="{% url 'blog:read' user_pk 0 3 3 %}">Read Article</a></p>
+                    <p><a class="all-blinks links-color3" href="{% url 'blog:readupdate' user_pk 0 3 3 %}">Update Content</a></p>
+                    <p><a class="all-blinks links-color3" href="{% url 'blog:readdelete' user_pk 0 3 3 %}">Delete Article</a></p>
+                </div>
+            </div>
+            <nav>
+                <ul>
+                    <li class="list-1"><a class="all-links links-color2" href="{% url 'blog:create' user_pk %}">New content</a></li>
+                    <li class="list-2"><a class="all-links links-color2" href="{% url 'blog:read' user_pk 0 3 3 %}">Read Article</a></li>
+                    <li class="list-3"><a class="all-links links-color2" href="{% url 'blog:readupdate' user_pk 0 3 3 %}">Update Content</a></li>
+                    <li class="list-4"><a class="all-links links-color2" href="{% url 'blog:readdelete' user_pk 0 3 3 %}">Delete Article</a></li>
+                </ul>
+            </nav>
+            <div class="header-headings">
+                <h1>Welcome to your blog User account. Manage your articles effortlessly, create, view, edit, and delete your posts with ease.</h1>
+            </div>
+        </header>
+        <main>
+            <div class="details">
+                <h1>{{ user_message }}</h1>
+                <p>{{ user_firstname }} {{ user_lastname }}, to your home page, you are user {{ user_pk }}.</p>
+                <p>what is bubbling in that exceptional mind of your's you want to express?</p>
+                <p><a style="font-weight: 900;" class="all-links links-color2 login" href="{% url 'login' %}"><b>Back to login</b></a></p>
+            </div>
+        </main>
+    </body>
+    <script src="{% static './scripts/homepage.js' %}"></script>
+    <script src="{% static './scripts/burger.js' %}"></script>
+    <script src="{% static './scripts/burger_links.js' %}"></script>
+</html>

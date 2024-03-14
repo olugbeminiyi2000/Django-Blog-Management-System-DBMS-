@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+    <head lang="en">
+        <title>All blogs</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <header>
+            <h1>These are your Blog Posts</h1>
+        </header>
+        <main>
+            {% load mathfilters %}
+            {% if not splited_user_blogs %}
+                <p>{{ message }}</p>
+            {% else %}
+                {% for each_blog in splited_user_blogs %}
+                    <div>{{ each_blog.blog }}</div>
+                {% endfor %}
+            {% endif %}
+            {% with end_plus_one=end|add:1 %}
+                {% if length_of_user_blogs != end_plus_one %}
+                    {% if length_of_user_blogs != 0 %}
+                        <div style="display: inline-block;">
+                            <button>
+                                {% with next_start=start|add:counter %}
+                                    {% with next_end=end|add:counter %}
+                                        <a style="text-decoration: none;" href="{% url 'blog:read' dj_user_pk next_start next_end counter %}">
+                                            Next
+                                        </a>
+                                    {% endwith %}
+                                {% endwith %}
+                            </button>
+                        </div>
+                    {% endif %}
+                {% endif %}
+            {% endwith %}
+            {% if start != 0 %}
+                <div style="display: inline-block;">
+                    <button>
+                        {% with back_start=start|sub:counter %}
+                            {% with back_end=end|sub:counter %}
+                                <a style="text-decoration: none;" href="{% url 'blog:read' dj_user_pk back_start back_end counter %}">
+                                    Back
+                                </a>
+                            {% endwith %}
+                        {% endwith %}
+                    </button>
+                </div>
+            {% endif %}
+            <div>
+                <p>
+                    <a style="text-decoration: none;" href="{% url 'blog:home' %}">
+                        Back to Home
+                    </a>
+                </p>
+            </div>
+        </main>
+    </body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+    <head lang="en">
+        <title>Delete Blogs</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <header>
+            <h1>Delete your Blog Posts</h1>
+        </header>
+        <main>
+            {% load mathfilters %}
+            {% if not splited_user_blogs %}
+                <div>
+                    <p>{{ message }}</p>
+                </div>
+            {% else %}
+                {% for each_blog in splited_user_blogs %}
+                    <div>{{ each_blog.blog }}</div>
+                    <div>
+                        <button>
+                            <a  style="text-decoration: none;" href="{% url 'blog:delete' dj_user_pk each_blog.id back_path %}">
+                                delete blog {{ each_blog.id }}
+                            </a>
+                        </button>
+                    </div>
+                {% endfor %}
+            {% endif %}
+            {% with end_plus_one=end|add:1 %}
+                {% if length_of_user_blogs != end_plus_one %}
+                    {% if length_of_user_blogs != 0 %}
+                        <div style="display: inline-block;">
+                            <button>
+                                {% with next_start=start|add:counter %}
+                                    {% with next_end=end|add:counter %}
+                                        <a style="text-decoration: none;" href="{% url 'blog:readdelete' dj_user_pk next_start next_end counter %}">
+                                            Next
+                                        </a>
+                                    {% endwith %}
+                                {% endwith %}
+                            </button>
+                        </div>
+                    {% endif %}
+                {% endif %}
+            {% endwith %}
+            {% if start != 0 %}
+                <div style="display: inline-block;">
+                    <button>
+                        {% with back_start=start|sub:counter %}
+                            {% with back_end=end|sub:counter %}
+                                <a style="text-decoration: none;" href="{% url 'blog:readdelete' dj_user_pk back_start back_end counter %}">
+                                    Back
+                                </a>
+                            {% endwith %}
+                        {% endwith %}
+                    </button>
+                </div>
+            {% endif %}
+            <div>
+                <p>
+                    <a style="text-decoration: none;" href="{% url 'blog:home' %}">
+                        Back to Homepage
+                    </a>
+                </p>
+            </div>
+        </main>
+    </body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>translate</title>
+        <script src="https://kit.fontawesome.com/3c31c60669.js" crossorigin="anonymous"></script>
+        {% load static %}
+        <link rel="stylesheet" href="{% static 'styles/translate.css' %}">
+        <link rel="shortcut icon" href="https://ik.imagekit.io/akumuyi/icon.png?updatedAt=1707160202070" type="image/x-icon">
+    </head>
+    <body>
+        <div id="translate-main">
+            <div id='cleartext2'>
+                <p class='para-first'>You are in <span class='address'>{{ district }}, {{ city }} city, {{ country }}</span></p>
+            </div>
+            <div id='cleartext'>
+                <p class='para'>Select your langauge below:</p>
+            </div>
+            <div id="translate" class="">
+                <div id="google-ts"></div>
+            </div>
+            <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit" defer></script>
+            <script>
+                var mLang = "{{ m_lang }}";
+                var allLang = "{{ all_lang }}";
+                function googleTranslateElementInit(){
+                    new google.translate.TranslateElement(
+                        {
+                            pageLanguage: mLang,
+                            includedLanguages: allLang,
+                            multilanguagePage: true,
+                            layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+                            autoDisplay: false,
+                        },
+                        "google-ts"
+                    );
+                }
+            </script>
+            <div>
+                <button class='button-services' type='submit'>NEXT <i class="fa-solid fa-angles-right"></i></button>       
+            </div>
+            <div>
+                <button class='return prev' type='submit'><i class="fa-solid fa-angles-left"></i> BACK</button>       
+            </div>
+        </div>
+    </body>
+</head>

@@ -1,0 +1,48 @@
+<!DOCTYPE>
+<html lang="en">
+    <head>
+        <title>Confirm Post Delete</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <form method="post" action="{% url 'blog:confirm' blog_post_id back_path %}">
+            {% csrf_token %}
+            <h1>Warning!!!, are you sure you want to delete post?</h1>
+            <p>
+                <label style="display: none;" for="submitpost">post submission</label>
+                <input style="display: none;" id="submitpost" type="submit" name="submitblogpost" value="Post">
+            </p>
+            <p>
+                <label style="display: none;" for="cancelpost">post cancelation</label>
+                <input style="display: none;" id="cancelpost" type="submit" onclick="window.location='{% url 'blog:readdelete' dj_user_pk 0 3 3 %}'; return false;" name="cancelblogpost" value="Cancel">
+            </p>
+            <p>
+                <button id="postsubmit" type="button">Yes, delete_post</button>
+            </p>
+            <p>
+                <button id="postcancel" type="button">No, cancel_delete</button>
+            </p>
+        </form>
+    </body>
+    <script>
+        const postButton = document.querySelector("#postsubmit");
+        const postSubmit = document.querySelector("#submitpost");
+        const cancelButton = document.querySelector("#postcancel");
+        const cancelSubmit = document.querySelector("#cancelpost");
+
+        postSubmit.addEventListener("click", () => {
+            console.log("submitting blog post...");
+        });
+        postButton.addEventListener("click", () => {
+            postSubmit.click();
+        });
+        
+        cancelSubmit.addEventListener("click", () => {
+            console.log("Canceling blog post...");
+        });
+        cancelButton.addEventListener("click", () => {
+            cancelSubmit.click();
+        });
+    </script>
+</html>

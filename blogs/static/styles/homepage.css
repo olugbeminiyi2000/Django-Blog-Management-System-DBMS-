@@ -1,0 +1,251 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+body {
+    height: 100vh;
+}
+header {
+    background: #222;
+    height: 12.6rem;
+    display: flex;
+    flex-direction: row;
+}
+.ham-button {
+    display: none;
+}
+button {
+    padding: 1px 1px;
+    height: 2rem;
+    width: 5rem;
+    cursor: pointer;
+}
+nav {
+    max-width: 50rem;
+    margin: 0px auto;
+    display: flex;
+    height: inherit;
+    flex-direction: row;
+}
+ul {
+    list-style-type: none;
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0px;
+}
+.list-1 {
+    padding: 0px;
+    padding-right: 3rem;
+}
+.list-4 {
+    padding: 0px;
+    padding-left: 3rem;
+}
+.list-2{
+    padding: 0px 2.5rem 0px 2rem 
+}
+.list-3{
+    padding: 0px 2rem 0px 2.5rem 
+}
+a {
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 400;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Poppins", "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji", sans-serif;
+    font-style: normal;
+    text-transform: uppercase;
+    letter-spacing: .2em;
+}
+.links-color1 {
+    color: rgb(123, 207, 123);
+}
+.links-color2 {
+    color: #fff;
+}
+.links-color3 {
+    color: #010101;
+}
+header:hover {
+    background: azure;
+}
+header:hover ul a {
+    color: #222;
+}
+header:hover h1{
+    color: #222;
+}
+.header-headings {
+    display: none
+}
+main {
+    padding-top: 20px;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.46),  #222, rgba(255, 255, 250, 0.3)),
+                    url("https://cdn.pixabay.com/photo/2016/02/25/16/57/blog-1222465_960_720.jpg");
+    /* background-image: radial-gradient(circle, rgba(0, 0, 0, 0.46), #222, rgba(255, 255, 250, 0.3))
+    url("https://cdn.pixabay.com/photo/2016/02/25/16/57/blog-1222465_960_720.jpg"); */
+    background-size: cover;
+    background-position-y: 40%;
+    height: inherit;
+    color: #fff;
+    text-transform: capitalize;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    font-weight: 400;
+    font-family: -apple-system, BlinkMacSystemFont, Roboto, "Poppins", "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji", sans-serif;
+    font-style: normal;
+}
+.details {
+    max-width: 50rem;
+    margin: 30px auto;
+    text-align: center;
+}
+.details h1 {
+    font-size: 60px;
+}
+.details p {
+    font-size: 30px;
+    font-family: "Poppins";
+}
+.login {
+    font-size: large;
+}
+.ham-display-1 {
+    display: none;
+}
+.ham-display-2 {
+    display: flex;
+    height: 20rem;
+    width: 20rem;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-top: 6rem;
+    background: white;
+}
+@media screen and (max-width: 816px) {
+    .ham-button {
+        display: block;
+        position: relative;
+        top: 40%;
+    }
+    nav {
+        display: none;
+    }
+    header {
+        background: #222;
+        height: 12.6rem;
+        display: flex;
+        flex-direction: row;
+    }
+    .header-headings {
+        display: block;
+        font-family: "Poppins";
+        font-size: 12px;
+        color: rgb(239, 228, 228);
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+}
+@media screen and (max-width: 649px) and (max-height: 1140px) {
+    .header-headings {
+        font-size: 5px;
+    }
+    button {
+        height: 2rem;
+        width: 4rem;
+    }
+    .ham-display-2 {
+        height: 20rem;
+        width: 10rem;
+    }
+}
+@media screen and (max-width: 408px) and (max-height: 456px) {
+    .details p {
+        font-size: 20px;
+        font-family: "Poppins";
+    }
+    .details p .login {
+        font-size: 20px;
+    }
+}
+@media screen and (max-width: 267px) and (max-height: 1140px) {
+    .header-headings {
+        font-size: 5px;
+    }
+    button {
+        height: 2rem;
+        width: 3rem;
+    }
+    .ham-display-2 {
+        height: 20rem;
+        width: 5rem;
+    }
+    .ham-display-2 p a{
+        font-size: 8px;
+    }
+    .details h1 {
+        font-size: 30px;
+    }
+    .details p {
+        font-size: 20px;
+        font-family: "Poppins";
+    }
+    .details p .login {
+        font-size: 20px;
+    }
+}
+@media screen and (max-width: 153px) and (max-height: 1140px) {
+    .header-headings {
+        font-size: 3px;
+    }
+    button {
+        height: 2rem;
+        width: 2rem;
+    }
+    .ham-display-2 {
+        height: 20rem;
+        width: 3rem;
+    }
+    .ham-display-2 p a{
+        font-size: 4px;
+    }
+}
+@media screen and (max-width: 150px) and (max-height: 1140px){
+    .details h1 {
+        font-size: 15px;
+    }
+    .details p {
+        font-size: 10px;
+        font-family: "Poppins";
+    }
+    .details p .login {
+        font-size: 10px;
+    }
+}
+@media screen and (max-width: 110px) and (max-height: 1140px){
+    .header-headings {
+        display: none;
+    }
+    .ham-display-2 {
+        height: 20rem;
+        width: 2rem;
+    }
+    button {
+        height: 2rem;
+        width: 1rem;
+    }
+}
+@media screen and (max-width: 87px) and (max-height: 1140px){
+    .details h1 {
+        font-size: 8px;
+    }
+    .details p {
+        font-size: 5px;
+        font-family: "Poppins";
+    }
+    .details p .login {
+        font-size: 5px;
+    }
+}

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Blog User Signup</title>
+        {% load static %}
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.1.0/uicons-brands/css/uicons-brands.css'>
+        <link rel="stylesheet" href="{% static './styles/signup.css' %}">
+    </head>
+    <body>
+        <main>
+            <div class="main-header">
+                <h1 class="main-header-heading">Sign up #01</h1>
+            </div>
+            <div class="main-section">
+                <div class="section-1">
+                    <h3 class="section-1-heading">Hello!</h3>
+                    <p class="section-1-paragraph">Please signup to continue</p>
+                    <form action="{% url 'blog:signup' %}" method="post">
+                        {% csrf_token %}
+                        <div>
+                            <p><label class="form-labels" for="lastname">Lastname</label></p>
+                            <p><input class="input-texts" id="lastname" type="text" name="lastname" placeholder="Obolo" size="20" required></p>
+                        </div>
+                        <div>
+                            <p><label class="form-labels" for="firstname">Firstname</label></p>
+                            <p><input class="input-texts" id="firstname" type="text" name="firstname" placeholder="Emmanuel" size="20" required></p>
+                        </div>
+                        <div>
+                            <p><label class="form-labels" for="username">Username</label></p>
+                            <p><input class="input-texts" id="username" type="text" name="username" placeholder="emmaobolo" minlength="10" size="20" required></p>
+                        </div>
+                        <div>
+                            <p><label class="form-labels" for="email">email Address</label></p>
+                            <p><input class="input-texts" id="email" type="email" name="email" placeholder="egrep@student.com" size="20"></p>
+                        </div>
+                        <div>
+                            <p><label class="form-labels" for="password">password</label></p>
+                            <p><input class="input-texts" id="password" type="password" name="password" minlength="10" size="20" placeholder="Password" required></p> 
+                        </div>
+                        <div>
+                            <p><label class="form-labels" for="verify-password">verify password</label></p>
+                            <p class="verify"><input class="input-texts" id="verify-password" type="password" name="verify-password" size="20" placeholder="Verify Password" required></p>
+                        </div>
+                        <div style="display: none;">
+                            <p><label for="submit">submit</label></p>
+                            <p><input id="submit" type="submit" name="submit" value="submit-form"></p>
+                        </div>
+                        <div class="button-div">
+                            <button>Sign Up</button>
+                        </div>
+                        <div class="status">
+                            <p>{{ message }}</p>
+                        </div>
+                    </form>
+                </div>
+                <div class="section-2">
+                    <div>
+                        <i id="python-icon" class="fi fi-brands-python"></i>
+                    </div>
+                    <div>
+                        <h1 class="section-2-heading">Web Applications</h1>
+                    </div>
+                    <div class="section-2-paragraph">
+                        <p>Already have an account?</p>
+                    </div>
+                    <div class="section-2-link">
+                        <a href="{% url 'login' %}?next={% url 'blog:home' %}">Sign in</a>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </body>
+    <script src="{% static './scripts/signup.js' %}"></script>
+</html>

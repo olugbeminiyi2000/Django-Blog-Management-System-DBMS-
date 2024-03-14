@@ -1,0 +1,135 @@
+/* * {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    text-align: center;
+    color: #ffffff;
+    background-color: #28314e;
+}
+
+.main-box {
+ 
+    width: 80%;
+    height: 200px;
+    color: #ffffff;
+    border-radius: 0.8rem;
+}
+
+.main-box .pstyle {
+    margin-top: 2rem;
+} */
+
+* {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+body {
+    height: 100vh;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    /* display: flex;
+    flex-direction: column; */
+    /* justify-content: space-around; */
+}
+
+#translate-main {
+    background-color:#28314e;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 6px;
+    height: 100%;
+    width: inherit;
+}
+
+.hide-translator {
+    display: none;
+}
+
+h1 {
+    font-size: 2.8rem;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    padding-top: 40px;
+    padding-bottom: 2rem;
+    color: rgb(245, 245, 245);
+}
+
+p {
+    color: whitesmoke;
+    font-size: 2rem;
+
+}
+
+button {
+    background-color: rgb(165, 42, 42);
+    text-transform: capitalize;
+    color: rgba(245, 245, 245, 0.982);
+    margin-top: 1rem;
+    padding: 1rem 3rem;
+    font-size: 1.6rem;
+    font-weight: 500;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    border: none;
+    border-radius: 2rem;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color:#800707a6;
+    transition: 0.2s ease-in-out;
+}
+
+button:active {
+    transform: scale(1.2)
+}
+
+div img {
+    display: none;
+}
+
+div .goog-te-gadget-simple {
+    background-color: rgb(165, 42, 42);
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    border-radius: 1rem;
+}
+
+.VIpgJd-ZVi9od-xl07Ob-lTBxed span {
+    color: whitesmoke;
+    background-color: rgb(165, 42, 42);
+}
+
+.return {
+    font-size: 1rem;
+    background-color: #333333;
+    color: #ffffff;
+    border-radius: 1rem;
+}
+.prev {
+    display: none;
+}
+.address {
+    color: rgb(164, 172, 167);
+}
+
+.para-first {
+    font-size: 2.2rem;
+    padding-bottom: 1rem;
+}
+
+.para {
+    padding-bottom: 1rem;
+}

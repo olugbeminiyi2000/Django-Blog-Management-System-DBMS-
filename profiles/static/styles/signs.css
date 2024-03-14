@@ -1,0 +1,174 @@
+main {
+    background: #f6f6f6;
+}
+main .form-type, main .form1, main .form2{
+    background-color: #fff;
+}
+p {
+    font-family: "Open Sans",sans-serif; 
+}
+.form-display {
+    display: none !important;
+}
+header {
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+}
+div i {
+    font-size: 4rem;
+}
+.icon {
+    padding-left: 2rem;
+}
+.icon-word {
+    font-size: 3rem;
+    padding-left: 18px;
+    font-family: "PiolySans",sans-serif;
+    text-transform: capitalize;
+}
+.form-type {
+    display: flex;
+    max-width: 39.5rem;
+    margin: auto;
+    border-radius: 2px 2px 0px 0px;
+}
+.up, .in {
+    flex: 1;
+    display: flex;
+    font-size: 14px;
+    font-family: "Open Sans",sans-serif;
+    text-transform: uppercase;
+    height: 80px;
+    justify-content: center;
+    align-items: center;
+}
+.sign-pointer {
+    cursor: pointer;
+}
+.sign-background {
+    background: #f6f6f6;
+}
+.up a, .in a {
+    text-decoration: none;
+    color: #0b0b0b;
+}
+form {
+    margin-bottom: 5rem;
+}
+.form1, .form2{
+    display: flex;
+    flex-direction: column;
+    max-width: 39.5rem;
+    margin: auto;
+    border-radius: 0px 0px 3px 3px;   
+}
+.form1 h2, .form2 h2{
+    margin-top: 3rem;
+    text-align: center;
+    color: #0b0b0b;
+    font-family: "PolySans",sans-serif;
+    font-weight: 400;
+    font-size: 2rem;
+}
+.form1-p1 {
+    margin-bottom: 2px;
+    font-family: "Open Sans",sans-serif;
+    text-align: center;
+    color: #0b0b0b;
+    font-size: 1rem;
+    font-weight: 400;
+    font-style: normal;
+}
+.form1-p2 {
+    margin-top: 2px;
+    font-family: "Open Sans",sans-serif;
+    text-align: center;
+    color: #0b0b0b;
+    font-size: 1rem;
+    font-weight: 400;
+    font-style: normal;
+}
+#email-1, #email-2{
+    height: 2.5rem;
+    border: 1.5px solid rgba(11, 11, 11, 0.5);
+    border-radius: 3px;
+    padding: 6px 6px;
+    font-size: 13px;
+    font-weight: 400;
+    margin-left: 2.0rem;
+}
+#password-1, #password-2{
+    height: 2.5rem;
+    border: 1.5px solid rgba(11, 11, 11, 0.5);
+    border-radius: 3px;
+    padding: 6px 6px;
+    font-size: 13px;
+    font-weight: 400;
+    margin-left: 0.4rem;
+}
+.checkbox {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+}
+#remember-1 {
+    border: 1.5px solid rgba(11, 11, 11, 0.5);
+    border-radius: 3px;
+    width: 30px;
+    height: 20px;
+}
+.terms-conditions {
+    color: #0b0b0b;
+    text-align: center;
+    font-size: 0.7rem;
+    font-weight: 400;
+    font-style: normal;
+}
+.err-para {
+    color: #f30000;
+    text-align: center;
+    font-size: 0.8rem;
+    font-weight: 400;
+    font-style: normal;
+}
+.success-para {
+    color: #76e42e;
+    text-align: center;
+    font-size: 0.8rem;
+    font-weight: 400;
+    font-style: normal;
+}
+label {
+    color: #0b0b0b;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-weight: 400;
+    text-transform: capitalize;
+    padding-left: 12px;
+}
+.submit-display {
+    display: none;
+}
+
+button {
+    background-color: #2015ff;
+    cursor: pointer;
+    color: #fff;
+    border-radius: 4px;
+    text-transform: unset;
+    letter-spacing: normal;
+    font-weight: 700;
+    font-size: 1.125rem;
+    height: 60px;
+    padding: 0 24px;
+    width: 100%;
+    max-width: 240px;
+    position: relative;
+    left: 30%;
+    margin-top: 15px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}

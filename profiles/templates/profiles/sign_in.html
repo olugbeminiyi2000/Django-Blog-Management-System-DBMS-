@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>authenticate</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        {% load static %}
+        <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.1.0/uicons-brands/css/uicons-brands.css'>
+        <link rel="stylesheet" href="{% static 'styles/signs.css' %}">
+    </head>
+    <body>
+        <header>
+            <div class="icon"><i class="fi fi-brands-python"></i></div>
+            <div class="icon-word">python</div>
+        </header>
+        <main>
+            <div class="form-type">
+                <div class="up sign-pointer">sign up</div>
+                <div class="in sign-background">sign in</div>
+            </div>
+            <div class="form1 form-display">
+                <h2>Create your account.</h2>
+                <p class="form1-p1">build skills for today, tomorrow, and beyond.</p>
+                <p class="form1-p2">education to future-proof your career.</p>
+                <form action="{% url 'profiles:sign_up' %}" method="post">
+                    {% csrf_token %}
+                    <p><label for="email-1">email:</label><input id="email-1" type="email" name="email" placeholder="Email Address" size="70" required></p>
+                    <p><label for="password-1">password:</label><input id="password-1" type="password" name="password" minlength="10" size="70" required></p>
+                    <p class="terms-conditions">By clicking "sign up" you agree to our <a href="#">Terms of Use </a>and our <a href="#">Privacy Policy</a></p>
+                    <p class="submit-display"><input type="submit" name="submit" id="sign-up"></p>
+                    <button class="sign-up-button"><span>sign up</span><span>&#10230;</span></button>
+                </form>
+            </div>
+            <div class="form2">
+                <h2>Sign in to your account.</h2>
+                <p class="form1-p1">build skills for today, tomorrow, and beyond.</p>
+                <p class="form1-p2">education to future-proof your career.</p>
+                <form action="{% url 'profiles:sign_in' %}" method="post">
+                    {% csrf_token %}
+                    <p><label for="email-2">email:</label><input id="email-2" type="email" name="email" placeholder="Email Address" size="70" required></p>
+                    <p><label for="password-2">password:</label><input id="password-2" type="password" name="password" minlength="10" size="70" required></p>
+                    <p class="checkbox"><label for="remember-1">remember me</label><input type="checkbox" name="keep" value="remember" id="remember-1"></p>
+                    <p class="submit-display"><input type="submit" name="submit" id="sign-in"></p>
+                    <button class="sign-in-button"><span>sign in</span><span>&#10230;</span></button>
+                    <p class="success-para">{{ message }}</p>
+                    <p class="err-para">{{ message_in }}</p>
+                </form>                           
+            </div>
+        </main>
+    </body>
+    <script src="{% static 'scripts/signs.js' %}"></script>
+    <script src="{% static 'scripts/sendforms.js' %}"></script>
+</html>

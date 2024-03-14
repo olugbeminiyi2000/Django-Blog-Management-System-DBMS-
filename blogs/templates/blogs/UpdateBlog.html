@@ -1,0 +1,65 @@
+<!DOCTYPE>
+<html lang="en">
+    <head>
+        <title>Update Blog Post</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        {% if update_form.errors %}
+            <p>Your blog title has exceeded the maximum number of characters</p>
+        {% endif %}
+        {% if error_message %}
+            <p>{{ error_message }}</p>
+        {% endif %}
+        {% if post %}
+            <p>{{ post }}</p>
+        {% endif %}
+        <form method="post" action="{% url 'blog:update' dj_user_pk blog_post_id back_path %}">
+            {% csrf_token %}
+            {{ update_form.as_p }}
+            <p>
+                <label style="display: none;" for="submitpost">post submission</label>
+                <input style="display: none;" id="submitpost" type="submit" name="submitblogpost" value="Post">
+            </p>
+            <p>
+                <label style="display: none;" for="cancelpost">post cancelation</label>
+                <input style="display: none;" id="cancelpost" type="submit" onclick="window.location='{% url 'blog:readupdate' dj_user_pk 0 3 3 %}'; return false;" name="cancelblogpost" value="Cancel">
+            </p>
+            <p>
+                <button id="postsubmit" type="button">update_post</button>
+            </p>
+            <p>
+                <button id="postcancel" type="button">cancel_update</button>
+            </p>
+            <p>
+                <button>
+                    <a style="text-decoration: none;" href="https://emmanuelobolo.pythonanywhere.com/{{ back_path }}">back</a>
+                </button>
+            </p>
+        </form>
+        {% if message %}
+            <p>{{ message }}</p>
+        {% endif %}
+    </body>
+    <script>
+        const postButton = document.querySelector("#postsubmit");
+        const postSubmit = document.querySelector("#submitpost");
+        const cancelButton = document.querySelector("#postcancel");
+        const cancelSubmit = document.querySelector("#cancelpost");
+
+        postSubmit.addEventListener("click", () => {
+            console.log("submitting blog post...");
+        });
+        postButton.addEventListener("click", () => {
+            postSubmit.click();
+        });
+        
+        cancelSubmit.addEventListener("click", () => {
+            console.log("Canceling blog post...");
+        });
+        cancelButton.addEventListener("click", () => {
+            cancelSubmit.click();
+        });
+    </script>
+</html>
