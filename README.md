@@ -15,7 +15,7 @@ This is a Django application built for content management.
 ## Installation
 1. Clone the repository: `git clone <repository-url>`
 2. Navigate to the project directory: `cd <project-directory>`
-3. Install dependencies: `pip install -r requirements.txt`
+3. Install dependencies: `pip install -r requirements42.txt`
 4. Make makemigration: `python manage.py makemigrations`
 5. Run migrations: `python manage.py migrate`
 6. Start the development server: `python manage.py runserver`
