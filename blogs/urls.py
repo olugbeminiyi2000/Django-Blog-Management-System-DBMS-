@@ -6,6 +6,7 @@ app_name = "blogs"
 urlpatterns = [
     path("signup", views.SignUp.as_view(), name="signup"),
     path("home", views.homepage, name="home"),
+    path("blog/<int:special_number>/Blog", views.AllComment.as_view(), name="comment"),
     path("blog/<int:dj_user_pk>/create", views.BlogCreate.as_view(), name="create"),
     path("blog/<int:dj_user_pk>/read/<int:start>/<int:end>/<int:counter>", views.BlogRead.as_view(), name="read"),
     path("blog/<int:dj_user_pk>/readupdate/<int:start>/<int:end>/<int:counter>", views.BlogReadUpdate.as_view(), name="readupdate"),

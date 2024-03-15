@@ -4,8 +4,9 @@ from django.http import HttpResponse
 from django.contrib.auth.models import User
 from django.utils.http import urlencode
 from django.urls import reverse
-from .models import BlogPost, BlogCategory, BlogUser
-from .forms import BlogForm, CategoryForm
+from .models import BlogPost, BlogCategory, BlogUser, Comment
+from .forms import BlogForm, CategoryForm, CommentForm
+from django.views.generic.list import ListView
 # Create your views here.
 
 # minutes and seconds variable
@@ -36,6 +37,60 @@ def check_creator_of_blog_post(dj_user_pk, blog_post):
     if dj_user_pk == blog_post_creator:
         return True
     return False
+
+class AllComment(ListView):
+    model = BlogPost
+    paginate_by = 3
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        # create a comment form to add to context data
+        comment_form =  CommentForm()
+        context["comment_form"] = comment_form
+        # add User query set inside of the context variable
+        blogpost_list = super().get_queryset().all()
+        user_full_names = {}
+        for blogpost in blogpost_list:
+            user_full_names[f"{blogpost.id}"] = User.objects.get(
+                id=blogpost.blog_user.user_id,
+            ).get_full_name()
+        context["user_full_names"] = user_full_names 
+        # check if in the session a successful comment was added
+        if self.request.session.get("message", None) == "success":
+            message = "A comment successfully added."
+            context["message"] = message
+            del self.request.session["message"]
+        return context
+
+
+    def post(self, request, special_number):
+        """
+        for now form doesn't need validation
+        because before it is sent the field can not be empty
+        but if it needs validation this is what it would look
+        like:
+        blog_post = BlogPost.objects.filter(id=special_number).first()
+        blog_user = blogPost.blog_user
+        data_to_check = {
+            'comment': request.POST.get("comment"),
+            'comment_to_user': blog_user.id,
+        }
+        check_comment_form = CommentForm(initial_data=data_to_check)
+        if not check_comment_form.is_valid():
+            blogpost_list = super().get_query_set()
+            context = self.get_context_data()
+            context["blogpost_list"] = blogpost_list
+            return render(request, 'blogs/blogpost_list.html, context)
+        """
+        blog_post = BlogPost.objects.filter(id=special_number).first()
+        blog_user = blog_post.blog_user
+        comment = Comment(
+            comment=request.POST.get("comment"),
+            comment_to_user=blog_user,
+        )
+        comment.save()
+        request.session["message"] = "success"
+        return redirect(request.path)
 
 
 class BlogCreate(View):

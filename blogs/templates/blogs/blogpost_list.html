@@ -1,0 +1,90 @@
+<!DOCTYPE>
+<html lang="en">
+    <head>
+        <title>Welcome to wonder blogs</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        {% load blog_extras %}
+        {% if comment_form.errors %}
+            <p>An error has occured</p>
+        {% endif %}
+        {% if message %}
+            <p>{{ message }}</p>
+        {% endif %}
+        {% for blogpost in blogpost_list %}
+            <div>
+                {% with post_id=blogpost.id|stringformat:"d" %}
+                    <h3>Author: {{ user_full_names|get_item:post_id }}</h3>
+                {% endwith %}                    
+                <h2>Blog-title: {{ blogpost.blog_title }}</h2>
+                <div>{{ blogpost.blog }}</div>
+                <form method="post" action="{% url 'blog:comment' blogpost.id %}">
+                    {% csrf_token %}
+                    {{ comment_form.as_p }}
+                    <p>
+                        <input class="submitcomment{{ blogpost.id }} postinputs" style="display: none;" type="submit" name="submitblogpost" value="Post">
+                    </p>
+                    <p>
+                        <input class="cancelcomment{{ blogpost.id }} cancelinputs" style="display: none;" type="submit" onclick="window.location='{% url 'blog:comment' 0 %}'; return false;" name="cancelblogpost" value="Cancel">
+                    </p>
+                    <p>
+                    <button class="submitcomment{{ blogpost.id }} postbuttons" type="button">post comment</button>
+                    </p>
+                    <p>
+                    <button class="cancelcomment{{ blogpost.id }} cancelbuttons" type="button">cancel comment</button>
+                    </p>
+                </form>
+            </div>
+        {% endfor %}
+        <div class="pagination">
+            <span class="step-links">
+                {% if page_obj.has_previous %}
+                    <a href="?page=1">&laquo; first</a>
+                    <a href="?page={{ page_obj.previous_page_number }}">previous</a>
+                {% endif %}
+                <span class="current">
+                    Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+                </span>
+                {% if page_obj.has_next %}
+                    <a href="?page={{ page_obj.next_page_number }}">next</a>
+                    <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
+                {% endif %}
+            </span>
+        </div>
+    </body>
+    <script>
+        const postButtons = document.querySelectorAll(".postbuttons");
+        const cancelButtons = document.querySelectorAll(".cancelbuttons");
+        const postInputs = document.querySelectorAll(".postinputs");
+        const cancelInputs = document.querySelectorAll(".cancelinputs");
+
+        postInputs.forEach((element) => {
+            element.addEventListener("click", (event) => {
+                console.log(`clicked on element ${event.currentTarget.classList[1]}`);
+            });
+        });
+        postButtons.forEach((element) => {
+            element.addEventListener("click", (event) => {
+                const buttonElement = event.currentTarget;
+                const myclassList = buttonElement.classList[0];
+                const inputElement = document.querySelector(`input.${myclassList}`);
+                inputElement.click();
+            });
+        });
+        cancelInputs.forEach((element) => {
+            element.addEventListener("click", (event) => {
+                console.log(`clicked on element ${event.currentTarget.classList[1]}`);
+            });
+        });
+        cancelButtons.forEach((element) => {
+            element.addEventListener("click", (event) => {
+                const buttonElement = event.currentTarget;
+                const myclassList = buttonElement.classList[0];
+                const inputElement = document.querySelector(`input.${myclassList}`);
+                inputElement.click();
+            });
+        });
+    </script>
+</html>

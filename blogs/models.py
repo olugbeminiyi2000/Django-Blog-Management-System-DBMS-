@@ -8,6 +8,18 @@ class BlogUser(models.Model):
     def __str__(self):
         return "{}".format(self.user_id)
 
+class Comment(models.Model):
+    comment = models.TextField(null=False)
+    comment_to_user = models.ForeignKey(
+        BlogUser,
+        on_delete=models.CASCADE,
+        null=False,
+        related_name="user_comments",
+    )
+
+    def __str__(self):
+        return "{}".format(self.comment)
+
 class BlogCategory(models.Model):
     CATEGORIES = [
         ("Tech", "Technology"),
