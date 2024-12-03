@@ -28,11 +28,12 @@ main {
 }
 .main-header-heading {
     font-size: 28px;
-    color: #000;
+    color: #1E88E5;
     line-height: 1.5;
     font-weight: 400;
     font-family: "Roboto", Arial, sans-serif;
-    text-transform: capitalize;
+    text-transform: uppercase;
+    text-decoration: underline;
 }
 .main-section {
     display: flex;
@@ -80,8 +81,7 @@ form {
     border-right: 0px none white;
     border-bottom: thin solid rgba(0, 0, 0, 0.3);
     background-color: rgba(255, 255, 255, 0);
-    font-size: 1.6rem;
-    color: rgb(244, 60, 60);
+    font-size: 1rem;
 }
 input::placeholder {
     font-size: 1.0rem;
@@ -94,12 +94,13 @@ input::placeholder {
 button {
     width: 311.2px;
     height: 3.3rem;
-    border-radius: 0.25rem;
-    background: #7fa998;
-    border: 1px solid #7fa998;
+    border-radius: 2rem;
+    background: #1E88E5;
+    border: 1px solid#1E88E5 ;
     cursor: pointer;
-    font-size: 1.3rem;
+    font-size: 1rem;
     font-weight: 400;
+    color: #fff;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 .status {
@@ -112,7 +113,7 @@ button {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background: #7fa998;
+    background: #1E88E5;
     height: inherit;
 }
 #python-icon {

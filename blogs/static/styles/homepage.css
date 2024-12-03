@@ -2,12 +2,14 @@
 
 body {
     height: 100vh;
+    margin: 0px;
 }
 header {
     background: #222;
-    height: 12.6rem;
+    height: 5rem;
     display: flex;
     flex-direction: row;
+    margin: 0px;
 }
 .ham-button {
     display: none;
@@ -85,7 +87,7 @@ main {
     url("https://cdn.pixabay.com/photo/2016/02/25/16/57/blog-1222465_960_720.jpg"); */
     background-size: cover;
     background-position-y: 40%;
-    height: inherit;
+    height: 86.3%;
     color: #fff;
     text-transform: capitalize;
     display: flex;
@@ -119,7 +121,7 @@ main {
     width: 20rem;
     flex-direction: column;
     justify-content: space-between;
-    padding-top: 6rem;
+    padding-top: 2rem;
     background: white;
 }
 @media screen and (max-width: 816px) {
