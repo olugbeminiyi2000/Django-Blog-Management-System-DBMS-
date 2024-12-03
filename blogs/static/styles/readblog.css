@@ -1,0 +1,211 @@
+/* Base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    background-image: url(https://www.nsamedia.com/wp-content/uploads/2015/10/blog-bg-use.jpg);
+    color: #2D3748;
+    line-height: 1.6;
+    min-height: 100vh;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Header styling */
+header {
+    text-align: center;
+    padding: 20px 0 40px;
+    position: relative;
+    margin-top: 80px;
+}
+
+header h1 {
+    color: #2D3748;
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    margin-right: 20px;
+}
+
+.home-link {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+.home-link a {
+    color: #4A90E2;
+    text-decoration: none;
+    font-weight: 500;
+    padding: 8px 16px;
+    border-radius: 6px;
+    transition: background-color 0.2s ease;
+    position: fixed;
+    margin-left: 70px;
+}
+
+.home-link a:hover {
+    background-color: rgba(74, 144, 226, 0.1);
+}
+
+/* Main content area */
+main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* Blog grid layout */
+.blog-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 24px;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 1000px;
+}
+
+/* Blog card styling */
+.blog-card {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    padding: 24px;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    height: 100%;
+    backdrop-filter: blur(10px);
+    background: rgba(255, 255, 255, 0.95);
+}
+
+.blog-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Message styling */
+.message {
+    text-align: center;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    color: #4A5568;
+    margin: 20px auto;
+    max-width: 600px;
+}
+
+/* Pagination styling */
+.pagination {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 30px;
+    padding: 20px 0;
+}
+
+.nav-button button {
+    background: #4A90E2;
+    border: none;
+    border-radius: 6px;
+    padding: 0;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    overflow: hidden;
+}
+
+.nav-button button:hover {
+    background: #357ABD;
+}
+
+.nav-button button a {
+    color: white;
+    text-decoration: none;
+    padding: 8px 16px;
+    display: block;
+    font-size: 0.95rem;
+}
+
+/* Blog content styling */
+.blog-card {
+    line-height: 1.7;
+    color: #4A5568;
+}
+
+.blog-card h2 {
+    color: #2D3748;
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 12px;
+}
+
+.blog-card p {
+    margin-bottom: 16px;
+}
+
+/* Animation for cards */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.blog-card {
+    animation: fadeIn 0.3s ease-out forwards;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .container {
+        padding: 15px;
+    }
+
+    header {
+        padding: 15px 0 30px;
+        margin-bottom: 20px;
+    }
+
+    header h1 {
+        font-size: 1.5rem;
+    }
+
+    .home-link {
+        position: relative;
+        top: auto;
+        right: auto;
+        margin-top: 15px;
+    }
+
+    .blog-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        padding: 0 15px;
+    }
+
+    .blog-card {
+        padding: 20px;
+    }
+}

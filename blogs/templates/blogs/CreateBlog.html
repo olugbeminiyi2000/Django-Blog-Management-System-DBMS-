@@ -2,8 +2,10 @@
 <html lang="en">
     <head>
         <title>Create Blog Post</title>
+        {% load static %}
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="{% static './styles/new_content_page.css' %}">
     </head>
     <body>
         {% if category_form.errors %}
@@ -16,6 +18,11 @@
             {% csrf_token %}
             {{ blog_form.as_p }}
             {{ category_form.as_p }}
+            <p>
+                <a class="home-link" style="text-decoration: none;" href="{% url 'blog:home' %}">
+                    Back to Homepage
+                </a>
+            </p>
             <p>
                 <label style="display: none;" for="submitpost">post submission</label>
                 <input style="display: none;" id="submitpost" type="submit" name="submitblogpost" value="Post">
@@ -34,11 +41,6 @@
         {% if message %}
             <p>{{ message }}</p>
         {% endif %}
-        <p>
-            <a style="text-decoration: none;" href="{% url 'blog:home' %}">
-                Back to Homepage
-            </a>
-        </p>
     </body>
     <script>
         const postButton = document.querySelector("#postsubmit");

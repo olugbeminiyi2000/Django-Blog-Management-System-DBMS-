@@ -1,0 +1,90 @@
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background: #0A192F;
+    background: linear-gradient(135deg, #0A192F 0%, #112240 100%);
+    margin: 0;
+    height: 100vh;
+    display: grid;
+    place-items: center;
+}
+
+form {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 2.5rem;
+    border-radius: 16px;
+    width: 90%;
+    max-width: 450px;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+form::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #00d2ff 0%, #3a7bd5 100%);
+}
+
+h1 {
+    color: #fff;
+    font-size: 1.6rem;
+    margin-bottom: 2.5rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.button-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+button {
+    padding: 1rem;
+    border-radius: 12px;
+    font-size: 1rem;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 600;
+}
+
+#postsubmit {
+    background: linear-gradient(45deg, #ff3c38, #ff8c42);
+    color: white;
+}
+
+#postsubmit:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(255, 60, 56, 0.4);
+}
+
+#postcancel {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: white;
+}
+
+#postcancel:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateY(-2px);
+}
+
+@media (max-width: 480px) {
+    form {
+        width: 85%;
+        padding: 1.5rem;
+    }
+    
+    h1 {
+        font-size: 1.3rem;
+    }
+}
