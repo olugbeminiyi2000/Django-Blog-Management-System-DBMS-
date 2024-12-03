@@ -1,9 +1,11 @@
 <!DOCTYPE>
 <html lang="en">
     <head>
+        {% load static %}
         <title>Confirm Post Delete</title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="{% static './styles/confirm_delete.css' %}">
     </head>
     <body>
         <form method="post" action="{% url 'blog:confirm' blog_post_id back_path %}">

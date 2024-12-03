@@ -6,164 +6,49 @@
         {% load static %}
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.1.0/uicons-solid-rounded/css/uicons-solid-rounded.css'>
-        <style>
-            body {
-                height: 100%;
-                font-family: Poppins-Regular, sans-serif;
-                /*background: #262a2f;*/
-                background: linear-gradient(#0250c5, #d43f8d);
-            }
-            form {
-                height: inherit;
-                display: flex;
-                flex-direction: column;
-                /*padding: 55px 55px 37px;*/
-            }
-            p {
-                margin: 16px auto;
-            }
-            .hidden {
-                display: none;
-            }
-            .form-container {
-                max-width: 25rem;
-                height: 590px;
-                margin: 3rem auto;
-                padding: 55px 55px 37px;
-                border-radius: 10px;
-                background: linear-gradient(#9152f8, #b224ef, #7579ff);
-            }
-            .login-logo {
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                width: 120px;
-                height: 120px;
-                border-radius: 50%;
-                background-color: #fff;
-                margin: 0 auto;
-                font-size: 60px;
-                color: rgb(20, 25, 255);
-            }
-            .login-text {
-                font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-                font-size: 30px;
-                color: #fff;
-                line-height: 1.2;
-                text-align: center;
-                text-transform: uppercase;
-                display: block;
-                padding: 2rem;
-            }
-            input[name="username"] {
-                margin-left: 10px;
-                font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-                font-size: 20px;
-                color: #000;
-                line-height: 1.2;
-                /* display: block; */
-                width: 70%;
-                height: 25px;
-                border: 0px none;
-                background: whitesmoke;
-            }
-            input[name="password"] {
-                margin-left: 10px;
-                font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-                font-size: 20px;
-                color: #000;
-                line-height: 1.2;
-                /* display: block; */
-                width: 71.9%;
-                height: 25px;
-                border: 0px none;
-                background: whitesmoke;
-            }
-            label[for="id_username"], label[for="id_password"] {
-                font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-            }
-            .error-para {
-                text-align: center;
-                font-size: 1.5rem;
-                color: rgb(18, 18, 18);
-            }
-            button {
-                font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-                font-size: 16px;
-                color: #191919;
-                line-height: 1.2;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                padding: 0 20px;
-                min-width: 120px;
-                height: 50px;
-                border-radius: 25px;
-            }
-            button:hover {
-                background: linear-gradient(#9152f8, #b224ef, #7579ff);
-                color: #fffefe;
-            }
-            .signup-text {
-                font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-                font-size: 16px;
-                color: #544646;
-                line-height: 1.4;
-            }
-            .signup-text a {
-                font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-                font-size: 16px;
-                color: #fffefe;
-                line-height: 1.4;
-                text-decoration: none;
-            }
-            .signup-text a:hover {
-                color: #070707;
-            }
-        </style>
-        <link rel="stylesheet" type="text/css" href="{% static './styles/login.css' %}">
+        <link rel="stylesheet" href="{% static './styles/login.css' %}">
     </head>
     <body>
         {% if form.errors %}
-            <p class="error-para">An Error occured when verifying your submission,</p>
-            <p class="error-para">Please check your submission properly well again.</p>
+            <p class="error-message">An error occurred while verifying your submission.</p>
+            <p class="error-message">Please check your submission carefully.</p>
         {% endif %}
-        <div class="form-container">
-            <form action="{% url 'login' %}" method="post">
+        <div class="login-container">
+            <form action="{% url 'login' %}" method="post" class="login-form">
                 {% csrf_token %}
-                <span class="login-logo">
+                <div class="login-icon">
                     <i class="fi fi-sr-users-alt"></i>
-                </span>
-                <span class="login-text">
-                    Log in
-                </span>
-                {{ form.as_p }}
+                </div>
+                <h1 class="login-title">Log in</h1>
+                <div class="form-fields">
+                    {{ form.as_p }}
+                </div>
                 <p class="hidden">
-                    <label style="display: none;" for="submit">submission</label>
-                    <input style="display: none;" id="submit" type="submit" name="submitform" value="submit">
+                    <label for="submit">submission</label>
+                    <input id="submit" type="submit" name="submitform" value="submit">
                 </p>
                 <p class="hidden">
-                    <label style="display: none;" for="next">next hidden</label>
+                    <label for="next">next hidden</label>
                     <input id="next" type="hidden" name="next" value="{{ next }}">
                 </p>
-                <p class="button-para">
-                    <button type="button">Login</button>
-                </p>
-                <p>
-                    <span class="signup-text">Not a member? <a href="{% url 'blog:signup' %}">Sign up now</a></span>
+                <div class="button-wrapper">
+                    <button type="button" class="login-button">Login</button>
+                </div>
+                <p class="signup-text">
+                    Not a member? <a href="{% url 'blog:signup' %}" class="signup-link">Sign up now</a>
                 </p>
             </form>
         </div>
-    </body>
-    <script>
-        const signInButton = document.querySelector("button");
-        const submitButton = document.querySelector("#submit");
+        <script>
+            const signInButton = document.querySelector(".login-button");
+            const submitButton = document.querySelector("#submit");
 
-        submitButton.addEventListener("click", () => {
-            console.log("logging in...");
-        });
-        signInButton.addEventListener("click", () => {
-            submitButton.click();
-        });
-    </script>
+            submitButton.addEventListener("click", () => {
+                console.log("logging in...");
+            });
+            signInButton.addEventListener("click", () => {
+                submitButton.click();
+            });
+        </script>
+    </body>
 </html>

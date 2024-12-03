@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html>
     <head lang="en">
+        {% load static %}
         <title>Delete Blogs</title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="{% static './styles/Delete_read.css' %}">
     </head>
     <body>
         <header>
-            <h1>Delete your Blog Posts</h1>
+            <h1>Delete Your Blog Posts</h1>
         </header>
         <main>
             {% load mathfilters %}
@@ -59,8 +61,8 @@
             {% endif %}
             <div>
                 <p>
-                    <a style="text-decoration: none;" href="{% url 'blog:home' %}">
-                        Back to Homepage
+                    <a class="back_home"  href="{% url 'blog:home' %}">
+                        ← Back to Homepage
                     </a>
                 </p>
             </div>
