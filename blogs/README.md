@@ -1,10 +1,4 @@
-![Python](https://img.shields.io/badge/Python-80%25-brightgreen.svg)  
-![Django](https://img.shields.io/badge/Django-3.x-brightgreen.svg)  
-![HTML](https://img.shields.io/badge/HTML-10%25-yellow.svg)  
-![CSS](https://img.shields.io/badge/CSS-5%25-blue.svg)  
-![JavaScript](https://img.shields.io/badge/JavaScript-5%25-lightgrey.svg)  
-![SQLite](https://img.shields.io/badge/SQLite-Default-lightgrey.svg)  
-![Linux](https://img.shields.io/badge/Linux-Host-lightgrey.svg)
+![Python](https://img.shields.io/badge/Python-80%25-brightgreen.svg)![Django](https://img.shields.io/badge/Django-3.x-brightgreen.svg)![HTML](https://img.shields.io/badge/HTML-10%25-yellow.svg)![CSS](https://img.shields.io/badge/CSS-5%25-blue.svg)![JavaScript](https://img.shields.io/badge/JavaScript-5%25-lightgrey.svg)![SQLite](https://img.shields.io/badge/SQLite-Default-lightgrey.svg)![Linux](https://img.shields.io/badge/Linux-Host-lightgrey.svg)
 
 # Django Blog Management System
 
