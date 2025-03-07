@@ -44,7 +44,7 @@ python manage.py migrate
 ```
 python manage.py runserver
 ```
-5. Visit `http://localhost:8000` in your browser.
+5. Visit `http://localhost:8000/blogs/home` in your browser.
 
 ## Future Improvements
 - Adopt Django’s generic class-based views (e.g., `CreateView`, `ListView`) for cleaner code.
