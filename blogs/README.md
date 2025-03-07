@@ -1,4 +1,4 @@
-![Python](https://img.shields.io/badge/Python-80%25-brightgreen.svg)![Django](https://img.shields.io/badge/Django-3.x-brightgreen.svg)![HTML](https://img.shields.io/badge/HTML-10%25-yellow.svg)![CSS](https://img.shields.io/badge/CSS-5%25-blue.svg)![JavaScript](https://img.shields.io/badge/JavaScript-5%25-lightgrey.svg)![SQLite](https://img.shields.io/badge/SQLite-Default-lightgrey.svg)![Linux](https://img.shields.io/badge/Linux-Host-lightgrey.svg)
+![Python](https://img.shields.io/badge/Python-80%25-brightgreen.svg) ![Django](https://img.shields.io/badge/Django-3.x-brightgreen.svg) ![HTML](https://img.shields.io/badge/HTML-10%25-yellow.svg) ![CSS](https://img.shields.io/badge/CSS-5%25-blue.svg) ![JavaScript](https://img.shields.io/badge/JavaScript-5%25-lightgrey.svg) ![SQLite](https://img.shields.io/badge/SQLite-Default-lightgrey.svg) ![Linux](https://img.shields.io/badge/Linux-Host-lightgrey.svg) ![Contributors](https://img.shields.io/badge/contributors-1-orange.svg) ![License](https://img.shields.io/badge/license-MIT-blue.svg)  
 
 # Django Blog Management System
 
@@ -10,14 +10,6 @@ This Django-based blog management app was built to solidify the concepts I learn
 - **CRUD Operations**: Effortlessly create, read, update, and delete posts.
 - **Personalized Homepage**: After logging in, users land on a tailored homepage to manage their content.
 - **Responsive Design**: Enjoy a seamless experience across desktops, tablets, and phones.
-
-
-## Contributors
-![Contributors](https://img.shields.io/badge/contributors-1-orange.svg)  
-
-## License
-![License](https://img.shields.io/badge/license-MIT-blue.svg)  
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ## What I Learned
 Thanks to Dr. Chuck’s guidance, I gained hands-on experience with:
